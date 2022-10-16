@@ -1,0 +1,27 @@
+eureka:
+    client:
+        service-url:
+            defaultZone: http://localhost:8761/eureka
+server:
+    port: 8888
+spring:
+    application:
+        name: config-server
+    cloud:
+        config:
+            server:
+                git:
+                    host-key: github.com
+                    host-key-algorithm: ssh-ed25519
+                    ignore-local-ssh-settings: true
+                    private-key: |
+                        -----BEGIN OPENSSH PRIVATE KEY-----
+                        b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+                        QyNTUxOQAAACBc6c3orTl+kc2D0b3gQ159dMhNZhTfJpWGmOpU1hOm3AAAAKA26tNmNurT
+                        ZgAAAAtzc2gtZWQyNTUxOQAAACBc6c3orTl+kc2D0b3gQ159dMhNZhTfJpWGmOpU1hOm3A
+                        AAAEBvXOdoxvvIzEfBhVhGuNN6CnjkzkhVTBFGQzwgDFANR1zpzeitOX6RzYPRveBDXn10
+                        yE1mFN8mlYaY6lTWE6bcAAAAHXNwcmluZ21pY3Jvc2VydmlzZXNAZ21haWwuY29t
+                        -----END OPENSSH PRIVATE KEY-----
+                    skip-ssl-validation: true
+                    strict-host-key-checking: true
+                    uri: git@github.com:HaykMicroservices/config-repo.git
